@@ -6,9 +6,9 @@ En responsiv svensk matsedelssida för Nynässkolan i Gävle. Menyn hämtas frå
 
 ## Så fungerar uppdateringen
 
-Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Webbläsaren hämtar aldrig RSS direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Workflowen kan även startas manuellt under fliken **Actions**.
+Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Den kontrollerar också upp till åtta kommande ISO-veckor via Skolmatens officiella veckomeny för Nynässkolan; bara veckor med publicerade dagar och maträtter visas. Webbläsaren hämtar aldrig RSS eller framtida menyer direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Workflowen kan även startas manuellt under fliken **Actions**.
 
-GitHub Actions kör schemalagda jobb i UTC och kan ibland starta några minuter efter den angivna tiden. Ingen API-nyckel eller hemlighet behövs.
+GitHub Actions kör schemalagda jobb i UTC och kan ibland starta några minuter efter den angivna tiden. Skolmatens publika webbklient kräver en klientidentifierare för det officiella meny-API:t. Workflowen läser den dynamiskt från Skolmatens offentliga webbklient vid körning; värdet sparas inte i repot, i JSON-filen eller i Actions-loggarna. Ingen privat API-nyckel eller GitHub-hemlighet behövs.
 
 ## Publicera med GitHub Pages
 
@@ -44,7 +44,7 @@ Den egna vektorlogotypen ligger i `assets/nynas-logo.svg`. Den används i sidhuv
 
 ## Ändra och underhålla
 
-- Ändra RSS-adressen i `scripts/fetch_menu.py` om källan ändras.
+- Ändra RSS-adressen och antalet kommande veckor (`WEEKS_AHEAD`) i `scripts/fetch_menu.py` om källan eller visningshorisonten ändras.
 - Ändra utseende i `styles.css` och texter/layout i `index.html`.
 - Ändra klientlogik i `app.js`.
 - Följ körningarna under **Actions**. Fel visas även direkt på sidan via `data/menu.json`.

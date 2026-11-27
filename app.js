@@ -1,49 +1,78 @@
 const DAY_NAMES = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 const MONTHS = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"];
-
 const grid = document.querySelector("#menu-grid");
 const statusBox = document.querySelector("#status");
 const weekLabel = document.querySelector("#week-label");
+const weekNotice = document.querySelector("#week-notice");
+const previousWeek = document.querySelector("#previous-week");
+const nextWeek = document.querySelector("#next-week");
+const currentWeekButton = document.querySelector("#current-week-button");
 const lastUpdated = document.querySelector("#last-updated");
 const refreshButton = document.querySelector("#refresh-button");
 const printButton = document.querySelector("#print-button");
+let availableWeeks = [];
+let selectedWeek = 0;
 
 function displayDate(date) {
   return `${date.getDate()} ${MONTHS[date.getMonth()]}`;
 }
-
 function displayTimestamp(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "";
   return new Intl.DateTimeFormat("sv-SE", { dateStyle: "long", timeStyle: "short" }).format(date);
 }
-
 function showError(message) {
   grid.replaceChildren();
   statusBox.className = "status error";
   statusBox.textContent = message || "Matsedeln kunde inte hämtas just nu. Försök igen lite senare.";
+  weekNotice.textContent = "";
   lastUpdated.textContent = "";
   weekLabel.textContent = "Veckans meny är inte tillgänglig";
+  previousWeek.disabled = true;
+  nextWeek.disabled = true;
+  currentWeekButton.hidden = true;
 }
+function weekKey(week) { return `${week.year}-${week.week}`; }
 
 function render(data) {
-  if (data.status !== "ok" || !Array.isArray(data.days) || data.days.length === 0) {
+  if (data.status !== "ok") {
     showError(data.error || "Det finns ingen matsedel publicerad just nu.");
     return;
   }
-
-  const days = data.days.map((day) => ({ ...day, dateObject: new Date(`${day.date}T12:00:00`) }));
+  const oldKey = availableWeeks[selectedWeek] ? weekKey(availableWeeks[selectedWeek]) : null;
+  availableWeeks = Array.isArray(data.weeks) && data.weeks.length
+    ? data.weeks.filter((week) => Array.isArray(week.days) && week.days.length)
+    : (Array.isArray(data.days) && data.days.length ? [{ year: data.year || new Date(data.days[0].date).getFullYear(), week: data.week, days: data.days }] : []);
+  availableWeeks.sort((a, b) => a.year - b.year || a.week - b.week);
+  if (!availableWeeks.length) {
+    showError(data.error || "Det finns ingen matsedel publicerad just nu.");
+    return;
+  }
+  const wanted = oldKey ? availableWeeks.findIndex((week) => weekKey(week) === oldKey) : -1;
+  const current = availableWeeks.findIndex((week) => week.year === data.year && week.week === data.week);
+  selectedWeek = wanted >= 0 ? wanted : Math.max(0, current);
+  renderWeek(data);
+}
+function renderWeek(data) {
+  const week = availableWeeks[selectedWeek];
+  const days = week.days.map((day) => ({ ...day, dateObject: new Date(`${day.date}T12:00:00`) }));
   const first = days[0].dateObject;
-  weekLabel.textContent = `Vecka ${data.week} · ${displayDate(first)}–${displayDate(days[days.length - 1].dateObject)}`;
+  const last = days[days.length - 1].dateObject;
+  weekLabel.textContent = `Vecka ${week.week} · ${displayDate(first)}–${displayDate(last)} ${last.getFullYear()}`;
+  previousWeek.disabled = selectedWeek <= 0;
+  nextWeek.disabled = selectedWeek >= availableWeeks.length - 1;
+  const currentIndex = availableWeeks.findIndex((item) => item.year === data.year && item.week === data.week);
+  currentWeekButton.hidden = selectedWeek === currentIndex;
+  weekNotice.textContent = selectedWeek === availableWeeks.length - 1
+    ? (data.weekFetchWarning || "Fler veckor visas här när Skolmaten publicerar dem.")
+    : (data.weekFetchWarning || "");
   statusBox.className = "status success";
   statusBox.textContent = "";
-
   const today = new Date();
   grid.replaceChildren(...days.map((day) => {
     const card = document.createElement("article");
     card.className = "day-card";
     if (day.date === today.toLocaleDateString("sv-SE")) card.classList.add("today");
-
     const top = document.createElement("div");
     top.className = "day-top";
     const heading = document.createElement("div");
@@ -62,8 +91,12 @@ function render(data) {
       top.append(badge);
     }
     card.append(top);
-
-    if (Array.isArray(day.meals) && day.meals.length) {
+    if (day.cancelled) {
+      const empty = document.createElement("p");
+      empty.className = "day-empty";
+      empty.textContent = "Lunchserveringen är inställd.";
+      card.append(empty);
+    } else if (Array.isArray(day.meals) && day.meals.length) {
       const meals = document.createElement("ul");
       meals.className = "meal-list";
       for (const meal of day.meals) {
@@ -80,12 +113,10 @@ function render(data) {
     }
     return card;
   }));
-
   lastUpdated.textContent = data.fetchedAt
     ? `Senast hämtad ${displayTimestamp(data.fetchedAt)}${data.stale ? " · Visar senast sparade meny" : ""}`
     : "";
 }
-
 async function loadMenu() {
   refreshButton.disabled = true;
   statusBox.className = "status";
@@ -100,14 +131,19 @@ async function loadMenu() {
     refreshButton.disabled = false;
   }
 }
-
+previousWeek.addEventListener("click", () => { if (selectedWeek > 0) { selectedWeek--; renderWeek(window.menuData); } });
+nextWeek.addEventListener("click", () => { if (selectedWeek < availableWeeks.length - 1) { selectedWeek++; renderWeek(window.menuData); } });
+currentWeekButton.addEventListener("click", () => {
+  const index = availableWeeks.findIndex((week) => week.year === window.menuData.year && week.week === window.menuData.week);
+  if (index >= 0) { selectedWeek = index; renderWeek(window.menuData); }
+});
 refreshButton.addEventListener("click", () => { loadMenu(); loadWeather(); });
 printButton.addEventListener("click", () => window.print());
+// Keep the data available for week navigation and preserve the selected week on refresh.
+const originalRender = render;
+render = function(data) { window.menuData = data; originalRender(data); };
 loadMenu();
-
-// Keep an open Teams tab current as the hourly feed snapshot is published.
 window.setInterval(loadMenu, 15 * 60 * 1000);
-
 
 const weatherStatus = document.querySelector("#weather-status");
 const weatherCurrent = document.querySelector("#weather-current");

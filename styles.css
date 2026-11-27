@@ -50,3 +50,18 @@ body{color:#e1ece4;background:radial-gradient(ellipse at 78% 15%,#1c3021 0,trans
 .weather-credit,.bus-note{color:#9eaca1}
 footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 }
+
+
+/* Veckonavigering */
+.week-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.week-picker .week-label{margin:0}
+.week-arrow,.current-week-button{min-width:42px;height:42px;border:1px solid #dce5dc;border-radius:14px;background:#fff;color:var(--green);font:700 24px/1 "DM Sans",sans-serif;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.week-arrow:hover:not(:disabled),.current-week-button:hover{background:#edf5ed;border-color:#94b89a}
+.week-arrow:active:not(:disabled){transform:scale(.96)}
+.week-arrow:disabled{opacity:.42;cursor:not-allowed}
+.current-week-button{font-size:13px;padding:0 14px}
+.week-notice{min-height:20px;margin:9px 0 0 2px;color:var(--muted);font-size:12px}
+.week-picker button:focus-visible{outline:3px solid #5c9b71;outline-offset:3px}
+@media(max-width:540px){.week-picker{gap:7px}.week-arrow,.current-week-button{height:38px;min-width:38px;border-radius:12px}.current-week-button{padding:0 10px}.week-label{font-size:13px}}
+@media(prefers-color-scheme:dark){.week-arrow,.current-week-button{background:#1a261e;border-color:#3a4b3d;color:#c1d9c6}.week-arrow:hover:not(:disabled),.current-week-button:hover{background:#24362a;border-color:#5b8063}.week-notice{color:#aab8ae}}
+@media print{.week-picker,.week-notice{display:none}}
