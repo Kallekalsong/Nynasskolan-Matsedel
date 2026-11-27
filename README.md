@@ -34,7 +34,7 @@ Väderkortet visar nu även daglig sannolikhet för nederbörd. Dagens lunch få
 
 ## Väder och busstider
 
-Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.67800, 17.13183). Den hämtar data direkt från Open-Meteos publika Forecast API utan API-nyckel och uppdateras varje timme medan sidan är öppen. Om vädertjänsten inte svarar visas ett tydligt felmeddelande. Busstiderna visas som veckoschemat som anges direkt i `index.html`; dagens veckodag markeras automatiskt med tidszonen Europe/Stockholm. Ändra tiderna där om schemat ändras. Inga hållplatser eller rutter anges.
+Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.67800, 17.13183). Den hämtar data direkt från Open-Meteos publika Forecast API utan API-nyckel och uppdateras varje timme medan sidan är öppen. Om vädertjänsten inte svarar visas ett tydligt felmeddelande. Busstiderna visas som veckoschemat som anges direkt i `index.html`; dagens lunch och veckodag för busstiden markeras automatiskt enligt tidszonen Europe/Stockholm. Ändra tiderna där om schemat ändras. Inga hållplatser eller rutter anges.
 
 ## Tillgänglighet
 

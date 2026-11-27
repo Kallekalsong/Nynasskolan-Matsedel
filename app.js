@@ -106,10 +106,11 @@ function renderWeek(data) {
   statusBox.className = "status success";
   statusBox.textContent = "";
   const today = new Date();
+  const todayInGavle = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Stockholm" }).format(today);
   grid.replaceChildren(...days.map((day) => {
     const card = document.createElement("article");
     card.className = "day-card";
-    if (day.date === today.toLocaleDateString("sv-SE")) card.classList.add("today");
+    if (day.date === todayInGavle) card.classList.add("today");
     const top = document.createElement("div");
     top.className = "day-top";
     const heading = document.createElement("div");
