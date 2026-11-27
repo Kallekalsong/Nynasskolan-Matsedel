@@ -14,3 +14,6 @@
 @media(max-width:540px){.hero{min-height:0}.hero-copy{padding:24px 0 26px}.hero-art{display:none}.hero h1{font-size:39px;letter-spacing:-2px}.intro{max-width:100%;padding-right:0}.menu-grid{grid-template-columns:1fr;gap:9px}.day-card{min-height:0;padding:15px 16px}.day-top{margin-bottom:9px}.meal-list{gap:7px}.meal-list li{font-size:13px;line-height:1.55}.today-badge{font-size:8px}.section-heading h2{font-size:19px}.weather-forecast{gap:2px}.forecast-temps,.forecast-rain{font-size:8px}.holiday-list{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{gap:9px}.brand-copy strong{font-size:13px}.brand-copy small{font-size:8px;letter-spacing:1px}}
 
 @media(max-width:540px){.section-heading{flex-wrap:wrap;justify-content:flex-end;align-items:center}.section-heading>div:first-child{flex:1 0 100%;margin-right:0;margin-bottom:6px}.refresh span,.print-button span{display:inline}.refresh,.print-button{padding:9px 11px;font-size:11px;gap:6px}}
+
+@media(max-width:760px){.hero{min-height:0}.hero-copy{max-width:100%;padding:30px 0 34px}.hero-art{display:none}.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.menu-grid{grid-template-columns:1fr}}
