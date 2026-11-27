@@ -38,7 +38,7 @@ Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.678
 
 ## Tillgänglighet
 
-Varje dag visas som en egen underrubrik och datumet är märkt som ett datum i sidans struktur. Gränssnittet fungerar vid smal fönsterbredd, har en länk för att hoppa direkt till matsedeln och tydliga tangentbordsfokus, respekterar inställningen för minskad rörelse och följer enhetens mörka färgtema och har särskilda färger för Windows högkontrastläge.
+Små sekundärtexter i den ljusa färgvarianten använder mörkare nyanser för bättre kontrast. Varje dag visas som en egen underrubrik och datumet är märkt som ett datum i sidans struktur. Gränssnittet fungerar vid smal fönsterbredd, har en länk för att hoppa direkt till matsedeln och tydliga tangentbordsfokus, respekterar inställningen för minskad rörelse och följer enhetens mörka färgtema och har särskilda färger för Windows högkontrastläge.
 
 ## Logotyp
 
