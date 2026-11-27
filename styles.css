@@ -108,3 +108,8 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 .week-select option{background:#fff;color:#173b2e}
 @media(prefers-color-scheme:dark){.week-select option{background:#1a261e;color:#dfebe2}}
 @media(forced-colors:active){.week-select,.week-select option{background:Canvas;color:CanvasText}}
+
+.skip-link{position:absolute;top:10px;left:10px;z-index:1000;transform:translateY(-160%);padding:11px 14px;border-radius:10px;background:#123d2e;color:#fff;font-weight:700;text-decoration:none;box-shadow:0 4px 14px #0003}
+.skip-link:focus{transform:translateY(0);outline:3px solid #5c9b71;outline-offset:3px}
+@media(forced-colors:active){.skip-link{background:Canvas;color:CanvasText;border:2px solid CanvasText}.skip-link:focus{background:Highlight;color:HighlightText;border-color:Highlight}}
+@media print{.skip-link{display:none!important}}
