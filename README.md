@@ -4,7 +4,7 @@ En responsiv svensk matsedelssida för Nynässkolan i Gävle. Menyn hämtas frå
 
 **Öppna den publicerade sidan:** [Nynässkolans matsedel på GitHub Pages](https://kallekalsong.github.io/Nynasskolan-Matsedel/).
 
-Veckor kan delas direkt: välj en vecka och tryck **Dela veckan**. Länken öppnar den valda veckan på samma sida.
+Veckor kan delas direkt: välj en vecka och tryck **Dela veckan**. Länken öppnar den valda veckan på samma sida. Välj en vecka snabbt i listan bredvid datumet eller bläddra med pilarna.
 
 ## Så fungerar uppdateringen
 

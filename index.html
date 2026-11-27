@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2026-11-27-high-contrast">
-  <script src="app.js?v=2026-11-27-high-contrast" defer></script>
+  <link rel="stylesheet" href="styles.css?v=2026-11-27-week-select">
+  <script src="app.js?v=2026-11-27-week-select" defer></script>
 </head>
 <body>
   <main class="shell">
@@ -28,7 +28,7 @@
         <p class="eyebrow">GOTT, GRÖNT &amp; NÄRINGSRIKT</p>
         <h1 id="page-title">Nynässkolans<br><span>matsedel</span></h1>
         <p class="intro">Här hittar du veckans luncher. Vi lagar mat för att ge både energi och matglädje under hela skoldagen.</p>
-        <div class="week-picker" aria-label="Välj matsedelsvecka"><button id="previous-week" class="week-arrow" type="button" aria-label="Visa föregående publicerade vecka" disabled>‹</button><div class="week-label"><span class="calendar-icon" aria-hidden="true">▦</span><span id="week-label" aria-live="polite" aria-atomic="true">Hämtar veckans meny…</span></div><button id="next-week" class="week-arrow" type="button" aria-label="Visa nästa publicerade vecka" disabled>›</button><button id="current-week-button" class="current-week-button" type="button" hidden>Den här veckan</button><button id="week-share-button" class="week-share-button" type="button" aria-label="Kopiera länk till den här veckan">Dela veckan</button></div><p id="week-notice" class="week-notice" aria-live="polite"></p><p id="week-share-status" class="week-share-status" role="status" aria-live="polite"></p>
+        <div class="week-picker" aria-label="Välj matsedelsvecka"><button id="previous-week" class="week-arrow" type="button" aria-label="Visa föregående publicerade vecka" disabled>‹</button><div class="week-label"><span class="calendar-icon" aria-hidden="true">▦</span><select id="week-select" class="week-select" aria-label="Välj en publicerad matsedelsvecka" aria-live="polite" disabled><option value="">Hämtar veckans meny…</option></select></div><button id="next-week" class="week-arrow" type="button" aria-label="Visa nästa publicerade vecka" disabled>›</button><button id="current-week-button" class="current-week-button" type="button" hidden>Den här veckan</button><button id="week-share-button" class="week-share-button" type="button" aria-label="Kopiera länk till den här veckan">Dela veckan</button></div><p id="week-notice" class="week-notice" aria-live="polite"></p><p id="week-share-status" class="week-share-status" role="status" aria-live="polite"></p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="sun"></div><div class="plate"><div class="plate-inner"><span class="food food-one"></span><span class="food food-two"></span><span class="food food-three"></span><span class="food food-four"></span><span class="herb">✳</span></div></div>

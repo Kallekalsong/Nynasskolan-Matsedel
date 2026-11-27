@@ -102,3 +102,9 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
   a,.calendar-note a,.weather-credit a,footer a{color:LinkText;text-decoration:underline}
   .spinner{border-color:CanvasText;border-top-color:Highlight}
 }
+
+.week-select{min-width:0;max-width:min(72vw,360px);border:0;padding:0 18px 0 0;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.week-select:focus-visible{outline:3px solid #5c9b71;outline-offset:4px}
+.week-select option{background:#fff;color:#173b2e}
+@media(prefers-color-scheme:dark){.week-select option{background:#1a261e;color:#dfebe2}}
+@media(forced-colors:active){.week-select,.week-select option{background:Canvas;color:CanvasText}}

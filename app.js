@@ -2,7 +2,7 @@ const DAY_NAMES = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag"
 const MONTHS = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"];
 const grid = document.querySelector("#menu-grid");
 const statusBox = document.querySelector("#status");
-const weekLabel = document.querySelector("#week-label");
+const weekSelect = document.querySelector("#week-select");
 const weekNotice = document.querySelector("#week-notice");
 const previousWeek = document.querySelector("#previous-week");
 const nextWeek = document.querySelector("#next-week");
@@ -29,13 +29,19 @@ function showError(message) {
   statusBox.textContent = message || "Matsedeln kunde inte hämtas just nu. Försök igen lite senare.";
   weekNotice.textContent = "";
   lastUpdated.textContent = "";
-  weekLabel.textContent = "Veckans meny är inte tillgänglig";
+  weekSelect.disabled = true;
+  weekSelect.replaceChildren(Object.assign(document.createElement("option"), { value: "", textContent: "Veckans meny är inte tillgänglig" }));
   previousWeek.disabled = true;
   nextWeek.disabled = true;
   currentWeekButton.hidden = true;
   weekShareButton.disabled = true;
 }
 function weekKey(week) { return `${week.year}-${String(week.week).padStart(2, "0")}`; }
+function weekOptionLabel(week) {
+  const dates = week.days.map((day) => new Date(`${day.date}T12:00:00`));
+  const shortDate = (value) => new Intl.DateTimeFormat("sv-SE", { day: "numeric", month: "short", timeZone: "Europe/Stockholm" }).format(value);
+  return `Vecka ${week.week}, ${week.year} · ${shortDate(dates[0])}–${shortDate(dates[dates.length - 1])}`;
+}
 function updateWeekLink(week) {
   const url = new URL(window.location.href);
   url.searchParams.set("vecka", weekKey(week));
@@ -84,6 +90,13 @@ function render(data) {
   const requested = requestedKey ? availableWeeks.findIndex((week) => weekKey(week) === requestedKey) : -1;
   const wanted = oldKey ? availableWeeks.findIndex((week) => weekKey(week) === oldKey) : -1;
   const current = availableWeeks.findIndex((week) => week.year === data.year && week.week === data.week);
+  weekSelect.replaceChildren(...availableWeeks.map((week) => {
+    const option = document.createElement("option");
+    option.value = weekKey(week);
+    option.textContent = weekOptionLabel(week);
+    return option;
+  }));
+  weekSelect.disabled = false;
   selectedWeek = wanted >= 0 ? wanted : requested >= 0 ? requested : Math.max(0, current);
   renderWeek(data);
 }
@@ -92,7 +105,7 @@ function renderWeek(data) {
   const days = week.days.map((day) => ({ ...day, dateObject: new Date(`${day.date}T12:00:00`) }));
   const first = days[0].dateObject;
   const last = days[days.length - 1].dateObject;
-  weekLabel.textContent = `Vecka ${week.week}, ${week.year} · ${displayDate(first)}–${displayDate(last)}`;
+  weekSelect.value = weekKey(week);
   updateWeekLink(week);
   weekShareButton.disabled = false;
   weekShareStatus.textContent = "";
@@ -169,6 +182,10 @@ async function loadMenu() {
     refreshButton.disabled = false;
   }
 }
+weekSelect.addEventListener("change", () => {
+  const index = availableWeeks.findIndex((week) => weekKey(week) === weekSelect.value);
+  if (index >= 0) { selectedWeek = index; renderWeek(window.menuData); }
+});
 previousWeek.addEventListener("click", () => { if (selectedWeek > 0) { selectedWeek--; renderWeek(window.menuData); } });
 nextWeek.addEventListener("click", () => { if (selectedWeek < availableWeeks.length - 1) { selectedWeek++; renderWeek(window.menuData); } });
 currentWeekButton.addEventListener("click", () => {
