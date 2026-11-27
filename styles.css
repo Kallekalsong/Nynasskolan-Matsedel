@@ -55,8 +55,8 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 /* Veckonavigering */
 .week-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px}
 .week-picker .week-label{margin:0}
-.week-arrow,.current-week-button{min-width:42px;height:42px;border:1px solid #dce5dc;border-radius:14px;background:#fff;color:var(--green);font:700 24px/1 "DM Sans",sans-serif;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
-.week-arrow:hover:not(:disabled),.current-week-button:hover{background:#edf5ed;border-color:#94b89a}
+.week-arrow,.current-week-button,.week-share-button{min-width:42px;height:42px;border:1px solid #dce5dc;border-radius:14px;background:#fff;color:var(--green);font:700 24px/1 "DM Sans",sans-serif;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.week-arrow:hover:not(:disabled),.current-week-button:hover,.week-share-button:hover{background:#edf5ed;border-color:#94b89a}
 .week-arrow:active:not(:disabled){transform:scale(.96)}
 .week-arrow:disabled{opacity:.42;cursor:not-allowed}
 .current-week-button{font-size:13px;padding:0 14px}
@@ -65,3 +65,12 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 @media(max-width:540px){.week-picker{gap:7px}.week-arrow,.current-week-button{height:38px;min-width:38px;border-radius:12px}.current-week-button{padding:0 10px}.week-label{font-size:13px}}
 @media(prefers-color-scheme:dark){.week-arrow,.current-week-button{background:#1a261e;border-color:#3a4b3d;color:#c1d9c6}.week-arrow:hover:not(:disabled),.current-week-button:hover{background:#24362a;border-color:#5b8063}.week-notice{color:#aab8ae}}
 @media print{.week-picker,.week-notice{display:none}}
+
+.week-share-button{height:42px;padding:0 14px;border:1px solid #dce5dc;border-radius:14px;background:#fff;color:var(--green);font:600 13px "DM Sans",sans-serif;cursor:pointer;transition:background .18s,border-color .18s}
+.week-share-button:focus-visible{outline:3px solid #5c9b71;outline-offset:3px}
+.week-share-status{min-height:18px;margin:2px 0 0 2px;color:var(--green);font-size:12px}
+@media(max-width:540px){.week-share-button{height:38px;padding:0 10px;border-radius:12px}}
+@media(prefers-color-scheme:dark){.week-share-button{background:#1a261e;border-color:#3a4b3d;color:#c1d9c6}.week-share-button:hover{background:#24362a;border-color:#5b8063}.week-share-status{color:#a9d1b0}}
+@media print{.week-share-button,.week-share-status{display:none}}
+
+.week-share-button:disabled{opacity:.5;cursor:not-allowed}

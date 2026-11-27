@@ -4,6 +4,8 @@ En responsiv svensk matsedelssida för Nynässkolan i Gävle. Menyn hämtas frå
 
 **Öppna den publicerade sidan:** [Nynässkolans matsedel på GitHub Pages](https://kallekalsong.github.io/Nynasskolan-Matsedel/).
 
+Veckor kan delas direkt: välj en vecka och tryck **Dela veckan**. Länken öppnar den valda veckan på samma sida.
+
 ## Så fungerar uppdateringen
 
 Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Den kontrollerar också upp till åtta kommande ISO-veckor via Skolmatens officiella veckomeny för Nynässkolan; bara veckor med publicerade dagar och maträtter visas. Webbläsaren hämtar aldrig RSS eller framtida menyer direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Workflowen kan även startas manuellt under fliken **Actions**.

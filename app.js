@@ -7,6 +7,8 @@ const weekNotice = document.querySelector("#week-notice");
 const previousWeek = document.querySelector("#previous-week");
 const nextWeek = document.querySelector("#next-week");
 const currentWeekButton = document.querySelector("#current-week-button");
+const weekShareButton = document.querySelector("#week-share-button");
+const weekShareStatus = document.querySelector("#week-share-status");
 const lastUpdated = document.querySelector("#last-updated");
 const refreshButton = document.querySelector("#refresh-button");
 const printButton = document.querySelector("#print-button");
@@ -31,8 +33,38 @@ function showError(message) {
   previousWeek.disabled = true;
   nextWeek.disabled = true;
   currentWeekButton.hidden = true;
+  weekShareButton.disabled = true;
 }
-function weekKey(week) { return `${week.year}-${week.week}`; }
+function weekKey(week) { return `${week.year}-${String(week.week).padStart(2, "0")}`; }
+function updateWeekLink(week) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("vecka", weekKey(week));
+  window.history.replaceState({}, "", url);
+}
+async function copyWeekLink() {
+  if (!availableWeeks[selectedWeek]) return;
+  const url = new URL(window.location.href);
+  url.searchParams.set("vecka", weekKey(availableWeeks[selectedWeek]));
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(url.href);
+    } else {
+      const field = document.createElement("textarea");
+      field.value = url.href;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.append(field);
+      field.select();
+      const copied = document.execCommand("copy");
+      field.remove();
+      if (!copied) throw new Error("Kopiering stöds inte i den här webbläsaren.");
+    }
+    weekShareStatus.textContent = `Länk till vecka ${availableWeeks[selectedWeek].week} kopierad.`;
+  } catch {
+    weekShareStatus.textContent = "Kunde inte kopiera länken. Kopiera adressen från webbläsarens adressfält.";
+  }
+}
 
 function render(data) {
   if (data.status !== "ok") {
@@ -48,9 +80,11 @@ function render(data) {
     showError(data.error || "Det finns ingen matsedel publicerad just nu.");
     return;
   }
+  const requestedKey = new URLSearchParams(window.location.search).get("vecka");
+  const requested = requestedKey ? availableWeeks.findIndex((week) => weekKey(week) === requestedKey) : -1;
   const wanted = oldKey ? availableWeeks.findIndex((week) => weekKey(week) === oldKey) : -1;
   const current = availableWeeks.findIndex((week) => week.year === data.year && week.week === data.week);
-  selectedWeek = wanted >= 0 ? wanted : Math.max(0, current);
+  selectedWeek = wanted >= 0 ? wanted : requested >= 0 ? requested : Math.max(0, current);
   renderWeek(data);
 }
 function renderWeek(data) {
@@ -58,7 +92,10 @@ function renderWeek(data) {
   const days = week.days.map((day) => ({ ...day, dateObject: new Date(`${day.date}T12:00:00`) }));
   const first = days[0].dateObject;
   const last = days[days.length - 1].dateObject;
-  weekLabel.textContent = `Vecka ${week.week} · ${displayDate(first)}–${displayDate(last)} ${last.getFullYear()}`;
+  weekLabel.textContent = `Vecka ${week.week}, ${week.year} · ${displayDate(first)}–${displayDate(last)}`;
+  updateWeekLink(week);
+  weekShareButton.disabled = false;
+  weekShareStatus.textContent = "";
   previousWeek.disabled = selectedWeek <= 0;
   nextWeek.disabled = selectedWeek >= availableWeeks.length - 1;
   const currentIndex = availableWeeks.findIndex((item) => item.year === data.year && item.week === data.week);
@@ -135,8 +172,15 @@ previousWeek.addEventListener("click", () => { if (selectedWeek > 0) { selectedW
 nextWeek.addEventListener("click", () => { if (selectedWeek < availableWeeks.length - 1) { selectedWeek++; renderWeek(window.menuData); } });
 currentWeekButton.addEventListener("click", () => {
   const index = availableWeeks.findIndex((week) => week.year === window.menuData.year && week.week === window.menuData.week);
-  if (index >= 0) { selectedWeek = index; renderWeek(window.menuData); }
+  if (index >= 0) {
+    selectedWeek = index;
+    const url = new URL(window.location.href);
+    url.searchParams.delete("vecka");
+    window.history.replaceState({}, "", url);
+    renderWeek(window.menuData);
+  }
 });
+weekShareButton.addEventListener("click", copyWeekLink);
 refreshButton.addEventListener("click", () => { loadMenu(); loadWeather(); });
 printButton.addEventListener("click", () => window.print());
 // Keep the data available for week navigation and preserve the selected week on refresh.
