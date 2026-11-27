@@ -178,7 +178,8 @@ async function loadWeather() {
       temps.textContent = `${Math.round(data.daily.temperature_2m_max[index])}° / ${Math.round(data.daily.temperature_2m_min[index])}°`;
       const rain = document.createElement("span");
       rain.className = "forecast-rain";
-      rain.textContent = `Regn ${data.daily.precipitation_probability_max[index] ?? 0}%`;
+      const rainChance = data.daily.precipitation_probability_max[index];
+      rain.textContent = rainChance == null ? "Regn –" : `Regn ${rainChance}%`;
       item.append(day, symbol, temps, rain);
       return item;
     }));
