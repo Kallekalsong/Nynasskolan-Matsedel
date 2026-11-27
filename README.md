@@ -47,6 +47,7 @@ Den egna vektorlogotypen ligger i `assets/nynas-logo.svg`. Den används i sidhuv
 ## Ändra och underhålla
 
 - Ändra RSS-adressen och antalet kommande veckor (`WEEKS_AHEAD`) i `scripts/fetch_menu.py` om källan eller visningshorisonten ändras.
+- Kör `python -m unittest discover -s tests -v` för att kontrollera RSS- och API-tolkningen lokalt. GitHub Actions kör samma tester innan en ny meny hämtas och publiceras.
 - Ändra utseende i `styles.css` och texter/layout i `index.html`.
 - Ändra klientlogik i `app.js`.
 - Följ körningarna under **Actions**. Fel visas även direkt på sidan via `data/menu.json`.
@@ -54,3 +55,4 @@ Den egna vektorlogotypen ligger i `assets/nynas-logo.svg`. Den används i sidhuv
 ## Datakälla
 
 [Skolmaten RSS för Nynässkolan](https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv)
+
