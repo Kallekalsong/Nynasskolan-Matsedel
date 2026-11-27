@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b4a">
+  <meta name="description" content="Kalender för Nynässkolan i Gävle.">
+  <title>Kalender · Nynässkolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="Nynässkolan, startsida">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span class="brand-copy"><strong>Nynässkolan</strong><small>GÄVLE KOMMUN</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Huvudmeny"><a href="../">Matsedel</a><a class="nav-current" href="./">Kalender</a></nav>
+      <span class="live"><span></span> Skolkalender</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PLANERA TILLSAMMANS</p>
+        <h1>Allt viktigt,<br><span>på ett ställe.</span></h1>
+        <p class="intro">Håll koll på prov, aktiviteter och datum som är bra att komma ihåg. Kalendern visas i svensk tid.</p>
+      </div>
+      <div class="hero-note"><span class="note-icon">✳</span><strong>Enklare att planera</strong><span>Se vad som är på gång i klassen och på skolan.</span></div>
+    </section>
+
+    <section class="calendar-section" aria-labelledby="calendar-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">KALENDER</p><h2 id="calendar-heading">Månadens översikt</h2></div>
+        <div class="calendar-actions">
+          <button id="download-calendar" class="secondary-button" type="button" disabled><span aria-hidden="true">↓</span> Spara kalender</button>
+          <div class="month-controls"><button id="previous-month" class="icon-button" aria-label="Föregående månad" type="button">‹</button><button id="today-button" class="today-button" type="button">Idag</button><button id="next-month" class="icon-button" aria-label="Nästa månad" type="button">›</button></div>
+        </div>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite"><span class="spinner"></span> Hämtar kalendern…</div>
+      <div class="calendar-card">
+        <div class="month-title"><h3 id="month-title"></h3><span class="timezone">Svensk tid</span></div>
+        <div class="weekday-row" aria-hidden="true"><span>Mån</span><span>Tis</span><span>Ons</span><span>Tor</span><span>Fre</span><span>Lör</span><span>Sön</span></div>
+        <div id="month-grid" class="month-grid" role="grid" aria-label="Månadskalender"></div>
+        <div class="legend"><span><i class="dot dot-green"></i> Aktivitet</span><span><i class="dot dot-orange"></i> Prov eller deadline</span></div>
+      </div>
+    </section>
+
+    <section class="upcoming-section" aria-labelledby="upcoming-heading">
+      <div class="section-heading upcoming-heading"><div><p class="eyebrow">ATT SE FRAM EMOT</p><h2 id="upcoming-heading">Kommande händelser</h2></div><label class="filter-label" for="category-filter">Visa<select id="category-filter"><option value="alla">Alla</option><option value="aktivitet">Aktiviteter</option><option value="prov">Prov och deadlines</option></select></label></div>
+      <div id="event-list" class="event-list"></div>
+    </section>
+
+    <footer><span class="footer-mark">✳</span><span>Planera veckan med lite bättre koll.</span><a href="../">Till matsedeln ↗</a></footer>
+  </main>
+</body>
+</html>

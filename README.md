@@ -31,6 +31,10 @@ GitHub Pages-adressen är offentlig. Lägg inte in personuppgifter eller hemligh
 - Ändra klientlogik i `app.js`.
 - Följ körningarna under **Actions**. Fel visas även direkt på sidan via `data/menu.json`.
 
+## Skolkalender
+
+Kalendern finns på `https://kallekalsong.github.io/Nynasskolan-Matsedel/kalender/` och kan läggas till som en egen Teams-flik. Den använder `kalender/events.json`; lägg in verkliga datum där när de är klara att publicera. Varje händelse kan ha `date` (`ÅÅÅÅ-MM-DD`), `title`, `category` (`aktivitet` eller `prov`), `time`, `location`, `description` och `url`. Lämna listan tom tills ni har bekräftade datum. Sidan uppdaterar kalenderfilen var 15:e minut och erbjuder nedladdning som `.ics` när det finns händelser.
+
 ## Datakälla
 
 [Skolmaten RSS för Nynässkolan](https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv)
