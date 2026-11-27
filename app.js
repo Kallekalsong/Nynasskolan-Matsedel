@@ -6,6 +6,7 @@ const statusBox = document.querySelector("#status");
 const weekLabel = document.querySelector("#week-label");
 const lastUpdated = document.querySelector("#last-updated");
 const refreshButton = document.querySelector("#refresh-button");
+const printButton = document.querySelector("#print-button");
 
 function displayDate(date) {
   return `${date.getDate()} ${MONTHS[date.getMonth()]}`;
@@ -57,7 +58,7 @@ function render(data) {
     if (card.classList.contains("today")) {
       const badge = document.createElement("span");
       badge.className = "today-badge";
-      badge.textContent = "IDAG";
+      badge.textContent = "DAGENS LUNCH";
       top.append(badge);
     }
     card.append(top);
@@ -101,6 +102,7 @@ async function loadMenu() {
 }
 
 refreshButton.addEventListener("click", loadMenu);
+printButton.addEventListener("click", () => window.print());
 loadMenu();
 
 // Keep an open Teams tab current as the hourly feed snapshot is published.
@@ -174,7 +176,10 @@ async function loadWeather() {
       const temps = document.createElement("span");
       temps.className = "forecast-temps";
       temps.textContent = `${Math.round(data.daily.temperature_2m_max[index])}° / ${Math.round(data.daily.temperature_2m_min[index])}°`;
-      item.append(day, symbol, temps);
+      const rain = document.createElement("span");
+      rain.className = "forecast-rain";
+      rain.textContent = `Regn ${data.daily.precipitation_probability_max[index] ?? 0}%`;
+      item.append(day, symbol, temps, rain);
       return item;
     }));
     weatherStatus.textContent = `Femdagarsprognos · Uppdaterad ${new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Stockholm", hour: "2-digit", minute: "2-digit" }).format(new Date())}`;

@@ -36,7 +36,7 @@
     </section>
 
     <section class="menu-section" aria-labelledby="menu-heading">
-      <div class="section-heading"><div><p class="eyebrow">VECKANS LUNCHER</p><h2 id="menu-heading">Vad står på menyn?</h2></div><button id="refresh-button" class="refresh" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 7A7 7 0 1 0 17 11M16.5 3v4h-4"/></svg><span>Uppdatera</span></button></div>
+      <div class="section-heading"><div><p class="eyebrow">VECKANS LUNCHER</p><h2 id="menu-heading">Vad står på menyn?</h2></div><button id="refresh-button" class="refresh" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 7A7 7 0 1 0 17 11M16.5 3v4h-4"/></svg><span>Uppdatera</span></button><button id="print-button" class="print-button" type="button" aria-label="Skriv ut matsedeln eller spara som PDF"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7V3h10v4M5 14H3V8h14v6h-2M5 11h10v6H5z"/></svg><span>Skriv ut / PDF</span></button></div>
       <div id="status" class="status" role="status" aria-live="polite"><span class="spinner"></span> Hämtar senaste matsedeln…</div>
       <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
       <p id="last-updated" class="last-updated"></p>
@@ -63,6 +63,20 @@
           </ul>
           <p class="bus-note">Tider enligt veckoschemat.</p>
         </section>
+      </div>
+    </section>
+
+    <section class="calendar-section" aria-labelledby="calendar-heading">
+      <div class="calendar-panel">
+        <div class="section-heading calendar-heading"><div><p class="eyebrow">LÄSÅRET 2026/2027</p><h2 id="calendar-heading">Lov och lediga dagar</h2></div></div>
+        <ul class="holiday-list">
+          <li><span><strong>Jullov</strong><small>Efter höstterminens sista dag</small></span><time datetime="2026-12-23">23 dec–6 jan</time></li>
+          <li><span><strong>Lokala studiedagar</strong><small>Nynässkolan</small></span><time datetime="2027-01-07">7–8 jan</time></li>
+          <li><span><strong>Sportlov</strong><small>Vecka 9</small></span><time datetime="2027-03-01">1–5 mars</time></li>
+          <li><span><strong>Påsklov</strong></span><time datetime="2027-03-30">30 mars–2 april</time></li>
+          <li><span><strong>Klämdag</strong></span><time datetime="2027-05-07">7 maj</time></li>
+        </ul>
+        <p class="calendar-note">Kontrollera med skolan hur de privata bussarna går på lov- och studiedagar. <a href="https://www.gavle.se/utbildning-och-barnomsorg/grundskola-och-anpassad-grundskola/lov-ledigheter-och-franvaro-inom-grundskola-och-anpassad-grundskola/lasarsdata/" target="_blank" rel="noopener">Källa: Gävle kommun ↗</a></p>
       </div>
     </section>
 

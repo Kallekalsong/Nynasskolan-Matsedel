@@ -24,6 +24,10 @@ GitHub Actions kör schemalagda jobb i UTC och kan ibland starta några minuter 
 
 GitHub Pages-adressen är offentlig. Lägg inte in personuppgifter eller hemligheter i repot. Sidan länkar direkt till det publika RSS-flödet som källa.
 
+## Väder, busstider och läsår
+
+Väderkortet visar nu även daglig sannolikhet för nederbörd. Dagens lunch får en tydligare markering. Knappen **Skriv ut / PDF** öppnar webbläsarens utskriftsdialog; välj **Spara som PDF** där. Kalenderkortet visar Gävle kommuns publicerade lov och studiedagar för läsåret 2026/2027. Lokala studiedagar 7–8 januari är för Nynässkolan. Kontrollera kommunens sida för uppdateringar och lokala ändringar. Uppdatera datumen i `index.html` när ett nytt läsår publiceras.
+
 ## Väder och busstider
 
 Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.67800, 17.13183). Den hämtar data direkt från Open-Meteos publika Forecast API utan API-nyckel och uppdateras varje timme medan sidan är öppen. Om vädertjänsten inte svarar visas ett tydligt felmeddelande. Busstiderna visas som veckoschemat som anges direkt i `index.html`; ändra tiderna där om schemat ändras.
