@@ -102,3 +102,6 @@ async function loadMenu() {
 
 refreshButton.addEventListener("click", loadMenu);
 loadMenu();
+
+// Keep an open Teams tab current as the hourly feed snapshot is published.
+window.setInterval(loadMenu, 15 * 60 * 1000);
