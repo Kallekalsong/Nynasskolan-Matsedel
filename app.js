@@ -116,8 +116,18 @@ function renderWeek(data) {
   weekNotice.textContent = selectedWeek === availableWeeks.length - 1
     ? (data.weekFetchWarning || "Fler veckor visas här när Skolmaten publicerar dem.")
     : (data.weekFetchWarning || "");
-  statusBox.className = "status success";
-  statusBox.textContent = "";
+  const fetchedAt = Date.parse(data.fetchedAt || "");
+  const missingFetchTime = !Number.isFinite(fetchedAt);
+  const stale = Boolean(data.stale) || missingFetchTime || Date.now() - fetchedAt > 2 * 60 * 60 * 1000;
+  if (stale) {
+    statusBox.className = "status warning";
+    statusBox.textContent = missingFetchTime
+      ? "Tidpunkt för senaste hämtning saknas. Visar senast sparade meny."
+      : "Menyn har inte uppdaterats på över två timmar. Visar senast sparade meny.";
+  } else {
+    statusBox.className = "status success";
+    statusBox.textContent = "";
+  }
   const today = new Date();
   const todayInGavle = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Stockholm" }).format(today);
   grid.replaceChildren(...days.map((day) => {
@@ -165,9 +175,10 @@ function renderWeek(data) {
     }
     return card;
   }));
-  lastUpdated.textContent = data.fetchedAt
-    ? `Senast hämtad ${displayTimestamp(data.fetchedAt)}${data.stale ? " · Visar senast sparade meny" : ""}`
-    : "";
+  const fetchedLabel = displayTimestamp(data.fetchedAt);
+  lastUpdated.textContent = fetchedLabel
+    ? `Senast hämtad ${fetchedLabel}${data.stale ? " · Visar senast sparade meny" : ""} · Uppdateras automatiskt varje timme`
+    : "Uppdateras automatiskt varje timme";
 }
 async function loadMenu() {
   refreshButton.disabled = true;

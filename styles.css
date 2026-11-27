@@ -115,3 +115,7 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 @media print{.skip-link{display:none!important}}
 
 .day-name{margin:0}
+
+.status.warning{background:#fff6d9;color:#5e4718;border:1px solid #e8cf79}
+@media(prefers-color-scheme:dark){.status.warning{background:#3b321d;color:#f4d88b;border-color:#72602e}}
+@media(forced-colors:active){.status.warning{background:Canvas;color:CanvasText;border-color:CanvasText}}

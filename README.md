@@ -8,7 +8,7 @@ Veckor kan delas direkt: välj en vecka och tryck **Dela veckan**. Länken öppn
 
 ## Så fungerar uppdateringen
 
-Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Den kontrollerar också upp till åtta kommande ISO-veckor via Skolmatens officiella veckomeny för Nynässkolan; bara veckor med publicerade dagar och maträtter visas. Webbläsaren hämtar aldrig RSS eller framtida menyer direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Workflowen kan även startas manuellt under fliken **Actions**.
+Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Den kontrollerar också upp till åtta kommande ISO-veckor via Skolmatens officiella veckomeny för Nynässkolan; bara veckor med publicerade dagar och maträtter visas. Webbläsaren hämtar aldrig RSS eller framtida menyer direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Om den senast hämtade menyn är äldre än två timmar visas en varning och den sparade menyn märks som inaktuell. Workflowen kan även startas manuellt under fliken **Actions**.
 
 GitHub Actions kör schemalagda jobb i UTC och kan ibland starta några minuter efter den angivna tiden. Skolmatens publika webbklient kräver en klientidentifierare för det officiella meny-API:t. Workflowen läser den dynamiskt från Skolmatens offentliga webbklient vid körning; värdet sparas inte i repot, i JSON-filen eller i Actions-loggarna. Ingen privat API-nyckel eller GitHub-hemlighet behövs.
 
