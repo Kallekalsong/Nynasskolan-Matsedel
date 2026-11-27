@@ -1,6 +1,7 @@
 {
   "status": "ok",
   "school": "Nynässkolan",
+  "year": 2026,
   "week": 48,
   "days": [
     {
@@ -15,7 +16,8 @@
           "name": "Krämig ost- och skinksås med pasta",
           "description": ""
         }
-      ]
+      ],
+      "cancelled": false
     },
     {
       "date": "2026-11-24",
@@ -29,7 +31,8 @@
           "name": "Salsafisk med nachoströssel och potatis",
           "description": ""
         }
-      ]
+      ],
+      "cancelled": false
     },
     {
       "date": "2026-11-25",
@@ -43,7 +46,8 @@
           "name": "Köttfärsruta med gräddsås, potatis och lingonsylt",
           "description": ""
         }
-      ]
+      ],
+      "cancelled": false
     },
     {
       "date": "2026-11-26",
@@ -57,7 +61,8 @@
           "name": "Pannkakor med sylt, grädde och fruktsallad",
           "description": ""
         }
-      ]
+      ],
+      "cancelled": false
     },
     {
       "date": "2026-11-27",
@@ -71,9 +76,373 @@
           "name": "Kycklingpannbiff, vitlöksdressing, tomat- & persiljesallad och bulgur",
           "description": ""
         }
+      ],
+      "cancelled": false
+    }
+  ],
+  "fetchedAt": "2026-11-27T16:09:51+00:00",
+  "sourceUrl": "https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv",
+  "weeks": [
+    {
+      "year": 2026,
+      "week": 48,
+      "days": [
+        {
+          "date": "2026-11-23",
+          "label": "Måndag - Vecka 48",
+          "meals": [
+            {
+              "name": "Quorn Bolognese med pasta",
+              "description": ""
+            },
+            {
+              "name": "Krämig ost- och skinksås med pasta",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-11-24",
+          "label": "Tisdag - Vecka 48",
+          "meals": [
+            {
+              "name": "Salsagratinerad quorn med nachoströssel och potatis",
+              "description": ""
+            },
+            {
+              "name": "Salsafisk med nachoströssel och potatis",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-11-25",
+          "label": "Onsdag - Vecka 48",
+          "meals": [
+            {
+              "name": "Färsruta med gräddsås, potatis och lingonsylt",
+              "description": ""
+            },
+            {
+              "name": "Köttfärsruta med gräddsås, potatis och lingonsylt",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-11-26",
+          "label": "Torsdag - Vecka 48",
+          "meals": [
+            {
+              "name": "Skolmaten 80 år! Vi firar med pannkaksfest!",
+              "description": ""
+            },
+            {
+              "name": "Pannkakor med sylt, grädde och fruktsallad",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-11-27",
+          "label": "Fredag - Vecka 48",
+          "meals": [
+            {
+              "name": "Kebabkryddade beanbites, vitlöksdressing, tomat- & persiljesallad och bulgur",
+              "description": ""
+            },
+            {
+              "name": "Kycklingpannbiff, vitlöksdressing, tomat- & persiljesallad och bulgur",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "week": 49,
+      "days": [
+        {
+          "date": "2026-11-30",
+          "label": "",
+          "meals": [
+            {
+              "name": "Quorn Tikka masala serveras med ris",
+              "description": ""
+            },
+            {
+              "name": "Tikka masala serveras med ris",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-01",
+          "label": "",
+          "meals": [
+            {
+              "name": "Potatisbullar med linsfräs och lingonsylt",
+              "description": ""
+            },
+            {
+              "name": "Potatisbullar med keso och lingonsylt",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-02",
+          "label": "",
+          "meals": [
+            {
+              "name": "Tomat- och linssås med  pasta",
+              "description": ""
+            },
+            {
+              "name": "Köttfärssås med pasta",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-03",
+          "label": "",
+          "meals": [
+            {
+              "name": "Tacofärsgratäng med potatis, mild salsacrème",
+              "description": ""
+            },
+            {
+              "name": "Kökets pankopanerade fisk med remouladsås och kokt potatis",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-04",
+          "label": "",
+          "meals": [
+            {
+              "name": "Vitlöksdoftande beanflakes med kall bearnaise och rostad potatis",
+              "description": ""
+            },
+            {
+              "name": "Vitlökskyckling med kall bearnaise och rostad potatis",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "week": 50,
+      "days": [
+        {
+          "date": "2026-12-07",
+          "label": "",
+          "meals": [
+            {
+              "name": "Stroganoff med quorn och linser, ris",
+              "description": ""
+            },
+            {
+              "name": "Korv Stroganoff och ris",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-08",
+          "label": "",
+          "meals": [
+            {
+              "name": "Färsbullar med pasta och ketchup",
+              "description": ""
+            },
+            {
+              "name": "Krämig broccoli- och ostsås, pasta",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-09",
+          "label": "",
+          "meals": [
+            {
+              "name": "Tacofärs på baljväxtfärs, salsa, gräddfil, riven ost och tortilla",
+              "description": ""
+            },
+            {
+              "name": "Tacofärs med salsa, gräddfil, riven ost och tortilla",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-10",
+          "label": "",
+          "meals": [
+            {
+              "name": "Kökets morotsbiff, kall ört- och citronsås och potatismos",
+              "description": ""
+            },
+            {
+              "name": "Laxpanett med kall ört- och citronsås och potatismos",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-11",
+          "label": "",
+          "meals": [
+            {
+              "name": "Tacosoppa (soja) med gräddfil, mjukt bröd, skivad ost och clementin",
+              "description": ""
+            },
+            {
+              "name": "Risgrynsgröt med mjölk, mjukt bröd, skivad ost och clementin",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "week": 51,
+      "days": [
+        {
+          "date": "2026-12-14",
+          "label": "",
+          "meals": [
+            {
+              "name": "Chili sin carne med gräddfil och ris",
+              "description": ""
+            },
+            {
+              "name": "Chili con carne med gräddfil och ris",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-15",
+          "label": "",
+          "meals": [
+            {
+              "name": "Julbuffé",
+              "description": ""
+            },
+            {
+              "name": "Julbuffé",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-16",
+          "label": "",
+          "meals": [
+            {
+              "name": "Pastasås med pesto, vitlöksmarinerade sojabönor och pasta",
+              "description": ""
+            },
+            {
+              "name": "Krämig pastasås med lax & sej, serveras med pasta",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-17",
+          "label": "",
+          "meals": [
+            {
+              "name": "Minestronesoppa med pasta, mjukt bröd och skivad ost",
+              "description": ""
+            },
+            {
+              "name": "Kycklingsoppa med kokos och röd curry, mjukt bröd och skivad ost",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        },
+        {
+          "date": "2026-12-18",
+          "label": "",
+          "meals": [
+            {
+              "name": "Kebabgryta (beanflakes) med bulgur",
+              "description": ""
+            },
+            {
+              "name": "Kebabgryta med bulgur",
+              "description": ""
+            }
+          ],
+          "cancelled": false
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "week": 52,
+      "days": [
+        {
+          "date": "2026-12-24",
+          "label": "",
+          "meals": [],
+          "cancelled": true
+        },
+        {
+          "date": "2026-12-25",
+          "label": "",
+          "meals": [],
+          "cancelled": true
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "week": 53,
+      "days": [
+        {
+          "date": "2026-12-31",
+          "label": "",
+          "meals": [],
+          "cancelled": true
+        },
+        {
+          "date": "2027-01-01",
+          "label": "",
+          "meals": [],
+          "cancelled": true
+        }
       ]
     }
   ],
-  "fetchedAt": "2026-11-27T11:11:09+00:00",
-  "sourceUrl": "https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv"
+  "weekFetchWarning": ""
 }
