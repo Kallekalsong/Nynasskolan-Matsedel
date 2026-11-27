@@ -32,6 +32,10 @@ Väderkortet visar nu även daglig sannolikhet för nederbörd. Dagens lunch få
 
 Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.67800, 17.13183). Den hämtar data direkt från Open-Meteos publika Forecast API utan API-nyckel och uppdateras varje timme medan sidan är öppen. Om vädertjänsten inte svarar visas ett tydligt felmeddelande. Busstiderna visas som veckoschemat som anges direkt i `index.html`; ändra tiderna där om schemat ändras.
 
+## Logotyp
+
+Den egna vektorlogotypen ligger i `assets/nynas-logo.svg`. Den används i sidhuvudet, sidfoten och som favicon. Ändra SVG-filen där om du vill byta färger eller symbol.
+
 ## Ändra och underhålla
 
 - Ändra RSS-adressen i `scripts/fetch_menu.py` om källan ändras.
