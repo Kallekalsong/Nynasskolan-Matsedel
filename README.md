@@ -38,7 +38,7 @@ Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.678
 
 ## Tillgänglighet
 
-Gränssnittet fungerar vid smal fönsterbredd, har tydliga tangentbordsfokus, respekterar inställningen för minskad rörelse och följer enhetens mörka färgtema.
+Gränssnittet fungerar vid smal fönsterbredd, har tydliga tangentbordsfokus, respekterar inställningen för minskad rörelse och följer enhetens mörka färgtema och har särskilda färger för Windows högkontrastläge.
 
 ## Logotyp
 

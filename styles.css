@@ -89,3 +89,16 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
   .day-card{break-inside:avoid;page-break-inside:avoid}
   .section-heading{margin-bottom:10px}
 }
+
+@media(forced-colors:active){
+  body,.shell{background:Canvas;color:CanvasText}
+  .topbar,.day-card,.info-panel,.calendar-panel,.holiday-list li,.status,.week-arrow,.current-week-button,.week-share-button,.refresh,.print-button{background:Canvas;color:CanvasText;border:1px solid CanvasText}
+  .brand,.brand-copy strong,.live,.day-name,.day-date,.meal-list li,.day-empty,.last-updated,.week-notice,.weather-status,.bus-intro,.bus-list li,.bus-note,.calendar-note,.holiday-list strong,.holiday-list small,.holiday-list time,.panel-heading h2,.section-heading h2{color:CanvasText}
+  .week-arrow,.current-week-button,.week-share-button,.refresh,.print-button{background:ButtonFace;color:ButtonText;border-color:ButtonText}
+  .week-arrow:disabled{opacity:1;color:GrayText;border-color:GrayText}
+  .day-card.today{outline:3px solid Highlight;outline-offset:1px}
+  .today-badge,.bus-today-label{background:Highlight;color:HighlightText;border:1px solid Highlight}
+  .status.error{background:Mark;color:MarkText;border-color:Mark}
+  a,.calendar-note a,.weather-credit a,footer a{color:LinkText;text-decoration:underline}
+  .spinner{border-color:CanvasText;border-top-color:Highlight}
+}
