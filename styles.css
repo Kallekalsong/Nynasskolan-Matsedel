@@ -113,3 +113,5 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 .skip-link:focus{transform:translateY(0);outline:3px solid #5c9b71;outline-offset:3px}
 @media(forced-colors:active){.skip-link{background:Canvas;color:CanvasText;border:2px solid CanvasText}.skip-link:focus{background:Highlight;color:HighlightText;border-color:Highlight}}
 @media print{.skip-link{display:none!important}}
+
+.day-name{margin:0}

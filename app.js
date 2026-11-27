@@ -127,10 +127,11 @@ function renderWeek(data) {
     const top = document.createElement("div");
     top.className = "day-top";
     const heading = document.createElement("div");
-    const name = document.createElement("div");
+    const name = document.createElement("h3");
     name.className = "day-name";
     name.textContent = DAY_NAMES[day.dateObject.getDay()];
-    const date = document.createElement("div");
+    const date = document.createElement("time");
+    date.dateTime = day.date;
     date.className = "day-date";
     date.textContent = displayDate(day.dateObject);
     heading.append(name, date);
