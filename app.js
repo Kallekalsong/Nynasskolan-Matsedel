@@ -189,6 +189,27 @@ render = function(data) { window.menuData = data; originalRender(data); };
 loadMenu();
 window.setInterval(loadMenu, 15 * 60 * 1000);
 
+const busRows = [...document.querySelectorAll(".bus-list li")];
+function markTodayBus() {
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Stockholm", weekday: "long" }).format(new Date());
+  for (const row of busRows) {
+    const day = row.querySelector("span");
+    const isToday = day.textContent.toLocaleLowerCase("sv-SE") === today;
+    row.classList.toggle("bus-today", isToday);
+    if (isToday) row.setAttribute("aria-current", "date");
+    else row.removeAttribute("aria-current");
+    row.querySelector(".bus-today-label")?.remove();
+    if (isToday) {
+      const badge = document.createElement("span");
+      badge.className = "bus-today-label";
+      badge.textContent = "Idag";
+      row.insertBefore(badge, row.querySelector("time"));
+    }
+  }
+}
+markTodayBus();
+window.setInterval(markTodayBus, 60 * 1000);
+
 const weatherStatus = document.querySelector("#weather-status");
 const weatherCurrent = document.querySelector("#weather-current");
 const weatherForecast = document.querySelector("#weather-forecast");

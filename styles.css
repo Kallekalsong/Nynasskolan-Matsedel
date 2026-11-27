@@ -74,3 +74,7 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 @media print{.week-share-button,.week-share-status{display:none}}
 
 .week-share-button:disabled{opacity:.5;cursor:not-allowed}
+
+.bus-list li.bus-today{margin-inline:-10px;padding-inline:10px;background:#edf5ed;border-bottom-color:transparent;border-radius:10px;color:#173b2e;font-weight:700}
+.bus-today-label{margin-left:auto;margin-right:10px;padding:3px 7px;border-radius:999px;background:#dceede;color:#176b4a;font-size:10px;font-weight:700}
+@media(prefers-color-scheme:dark){.bus-list li.bus-today{background:#24382a;border-bottom-color:transparent;color:#e1ece4}.bus-today-label{background:#365a3d;color:#d0ebd4}}
