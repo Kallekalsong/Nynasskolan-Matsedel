@@ -2,6 +2,8 @@
 
 En responsiv svensk matsedelssida för Nynässkolan i Gävle. Menyn hämtas från skolans RSS-flöde med GitHub Actions och publiceras kostnadsfritt med GitHub Pages.
 
+Officiell information om skolan: [Nynässkolan – Gävle kommun](https://www.gavle.se/utbildning-och-barnomsorg/grundskola-och-anpassad-grundskola/kommunala-grundskolor/lista-over-grundskolor-i-gavle-kommun/nynasskolan/).
+
 ## Så fungerar uppdateringen
 
 Workflowen `Uppdatera matsedel` hämtar RSS-flödet serverbaserat varje timme, validerar skolnamnet, delar upp måltiderna och sparar `data/menu.json`. Webbläsaren hämtar aldrig RSS direkt. Om källan inte kan läsas skapas ingen påhittad meny; JSON-filen får felstatus och sidan visar ett begripligt fel. Workflowen kan även startas manuellt under fliken **Actions**.
