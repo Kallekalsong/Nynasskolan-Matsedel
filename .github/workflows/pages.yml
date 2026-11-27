@@ -32,6 +32,8 @@ jobs:
         with:
           name: github-pages-${{ github.run_attempt }}
           path: .
+      - name: Vänta in Pages-artefakten
+        run: sleep 15
       - name: Publicera webbplatsen
         id: deployment
         uses: actions/deploy-pages@v5
