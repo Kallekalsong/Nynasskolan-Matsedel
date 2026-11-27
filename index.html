@@ -42,6 +42,30 @@
       <p id="last-updated" class="last-updated"></p>
     </section>
 
+    <section class="extras-section" aria-label="Väder och busstider">
+      <div class="extras-grid">
+        <section class="info-panel weather-panel" aria-labelledby="weather-heading">
+          <div class="panel-heading"><div><p class="eyebrow">I GÄVLE JUST NU</p><h2 id="weather-heading">Väder vid skolan</h2></div><span class="weather-mark" aria-hidden="true">☀</span></div>
+          <p id="weather-status" class="weather-status" role="status" aria-live="polite"><span class="spinner"></span> Hämtar vädret…</p>
+          <div id="weather-current" class="weather-current"></div>
+          <div id="weather-forecast" class="weather-forecast"></div>
+          <p class="weather-credit">Prognos från <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+        </section>
+        <section class="info-panel bus-panel" aria-labelledby="bus-heading">
+          <div class="panel-heading"><div><p class="eyebrow">EFTER SKOLDAGEN</p><h2 id="bus-heading">Busstider</h2></div><span class="bus-mark" aria-hidden="true">↗</span></div>
+          <p class="bus-intro">Tider att hålla koll på under veckan.</p>
+          <ul class="bus-list">
+            <li><span>Måndag</span><time>15:40</time></li>
+            <li><span>Tisdag</span><time>15:40</time></li>
+            <li><span>Onsdag</span><time>15:10</time></li>
+            <li><span>Torsdag</span><time>15:20</time></li>
+            <li><span>Fredag</span><time>15:20</time></li>
+          </ul>
+          <p class="bus-note">Tider enligt veckoschemat.</p>
+        </section>
+      </div>
+    </section>
+
     <footer><span class="footer-mark">✳</span><span>Mat som gör skoldagen lite godare.</span><a href="https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv" target="_blank" rel="noopener">Källa: Skolmaten.se ↗</a></footer>
   </main>
 </body>

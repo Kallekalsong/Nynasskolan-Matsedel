@@ -24,6 +24,10 @@ GitHub Actions kör schemalagda jobb i UTC och kan ibland starta några minuter 
 
 GitHub Pages-adressen är offentlig. Lägg inte in personuppgifter eller hemligheter i repot. Sidan länkar direkt till det publika RSS-flödet som källa.
 
+## Väder och busstider
+
+Väderdelen visar aktuellt väder och femdagarsprognos för Nynässkolan (60.67800, 17.13183). Den hämtar data direkt från Open-Meteos publika Forecast API utan API-nyckel och uppdateras varje timme medan sidan är öppen. Om vädertjänsten inte svarar visas ett tydligt felmeddelande. Busstiderna visas som veckoschemat som anges direkt i `index.html`; ändra tiderna där om schemat ändras.
+
 ## Ändra och underhålla
 
 - Ändra RSS-adressen i `scripts/fetch_menu.py` om källan ändras.
