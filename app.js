@@ -101,7 +101,7 @@ async function loadMenu() {
   }
 }
 
-refreshButton.addEventListener("click", loadMenu);
+refreshButton.addEventListener("click", () => { loadMenu(); loadWeather(); });
 printButton.addEventListener("click", () => window.print());
 loadMenu();
 
