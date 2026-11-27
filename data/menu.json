@@ -1,0 +1,79 @@
+{
+  "status": "ok",
+  "school": "Nynässkolan",
+  "week": 48,
+  "days": [
+    {
+      "date": "2026-11-23",
+      "label": "Måndag - Vecka 48",
+      "meals": [
+        {
+          "name": "Quorn Bolognese med pasta",
+          "description": ""
+        },
+        {
+          "name": "Krämig ost- och skinksås med pasta",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "label": "Tisdag - Vecka 48",
+      "meals": [
+        {
+          "name": "Salsagratinerad quorn med nachoströssel och potatis",
+          "description": ""
+        },
+        {
+          "name": "Salsafisk med nachoströssel och potatis",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "label": "Onsdag - Vecka 48",
+      "meals": [
+        {
+          "name": "Färsruta med gräddsås, potatis och lingonsylt",
+          "description": ""
+        },
+        {
+          "name": "Köttfärsruta med gräddsås, potatis och lingonsylt",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "label": "Torsdag - Vecka 48",
+      "meals": [
+        {
+          "name": "Skolmaten 80 år! Vi firar med pannkaksfest!",
+          "description": ""
+        },
+        {
+          "name": "Pannkakor med sylt, grädde och fruktsallad",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "label": "Fredag - Vecka 48",
+      "meals": [
+        {
+          "name": "Kebabkryddade beanbites, vitlöksdressing, tomat- & persiljesallad och bulgur",
+          "description": ""
+        },
+        {
+          "name": "Kycklingpannbiff, vitlöksdressing, tomat- & persiljesallad och bulgur",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "fetchedAt": "2026-11-27T09:32:01+00:00",
+  "sourceUrl": "https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv"
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b4a">
+  <meta name="description" content="Veckans matsedel för Nynässkolan i Gävle.">
+  <title>Matsedel · Nynässkolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Nynässkolans matsedel, startsida">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 4v10m5-10v10M9.5 4v24M21 4c-3 4-4 8-4 12h5v12m0-24v24"/></svg></span>
+        <span class="brand-copy"><strong>Skolmåltiden</strong><small>GÄVLE KOMMUN</small></span>
+      </a>
+      <span class="live"><span></span> Officiell matsedel</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">GOTT, GRÖNT &amp; NÄRINGSRIKT</p>
+        <h1 id="page-title">Nynässkolans<br><span>matsedel</span></h1>
+        <p class="intro">Här hittar du veckans luncher. Vi lagar mat för att ge både energi och matglädje under hela skoldagen.</p>
+        <div class="week-label"><span class="calendar-icon" aria-hidden="true">▦</span><span id="week-label">Hämtar veckans meny…</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="plate"><div class="plate-inner"><span class="food food-one"></span><span class="food food-two"></span><span class="food food-three"></span><span class="food food-four"></span><span class="herb">✳</span></div></div>
+        <div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="sparkle">✳</div>
+      </div>
+    </section>
+
+    <section class="menu-section" aria-labelledby="menu-heading">
+      <div class="section-heading"><div><p class="eyebrow">VECKANS LUNCHER</p><h2 id="menu-heading">Vad står på menyn?</h2></div><button id="refresh-button" class="refresh" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 7A7 7 0 1 0 17 11M16.5 3v4h-4"/></svg><span>Uppdatera</span></button></div>
+      <div id="status" class="status" role="status" aria-live="polite"><span class="spinner"></span> Hämtar senaste matsedeln…</div>
+      <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+      <p id="last-updated" class="last-updated"></p>
+    </section>
+
+    <footer><span class="footer-mark">✳</span><span>Mat som gör skoldagen lite godare.</span><a href="https://skolmaten.se/api/4/rss/week/nynasskolan?locale=sv" target="_blank" rel="noopener">Källa: Skolmaten.se ↗</a></footer>
+  </main>
+</body>
+</html>
