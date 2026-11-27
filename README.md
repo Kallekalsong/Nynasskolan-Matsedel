@@ -30,7 +30,7 @@ GitHub Pages-adressen är offentlig. Lägg inte in personuppgifter eller hemligh
 
 ## Väder, busstider och läsår
 
-Väderkortet visar nu även daglig sannolikhet för nederbörd. Dagens lunch får en tydligare markering. Knappen **Skriv ut / PDF** öppnar webbläsarens utskriftsdialog; välj **Spara som PDF** där. Kalenderkortet visar Gävle kommuns publicerade lov och studiedagar för läsåret 2026/2027. Lokala studiedagar 7–8 januari är för Nynässkolan. Kontrollera kommunens sida för uppdateringar och lokala ändringar. Uppdatera datumen i `index.html` när ett nytt läsår publiceras.
+Väderkortet visar nu även daglig sannolikhet för nederbörd. Dagens lunch får en tydligare markering. Knappen **Skriv ut / PDF** öppnar webbläsarens utskriftsdialog; välj **Spara som PDF** där. Utskriften visar den valda veckan med årtal och dagkort i en kompakt layout. Kalenderkortet visar Gävle kommuns publicerade lov och studiedagar för läsåret 2026/2027. Lokala studiedagar 7–8 januari är för Nynässkolan. Kontrollera kommunens sida för uppdateringar och lokala ändringar. Uppdatera datumen i `index.html` när ett nytt läsår publiceras.
 
 ## Väder och busstider
 

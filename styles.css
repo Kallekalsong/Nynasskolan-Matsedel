@@ -78,3 +78,14 @@ footer{border-color:#334439;color:#aab8ae}footer a{color:#a3d0aa}
 .bus-list li.bus-today{margin-inline:-10px;padding-inline:10px;background:#edf5ed;border-bottom-color:transparent;border-radius:10px;color:#173b2e;font-weight:700}
 .bus-today-label{margin-left:auto;margin-right:10px;padding:3px 7px;border-radius:999px;background:#dceede;color:#176b4a;font-size:10px;font-weight:700}
 @media(prefers-color-scheme:dark){.bus-list li.bus-today{background:#24382a;border-bottom-color:transparent;color:#e1ece4}.bus-today-label{background:#365a3d;color:#d0ebd4}}
+
+@page{size:A4 portrait;margin:14mm}
+@media print{
+  .week-picker{display:flex!important;flex-wrap:nowrap;margin:6px 0 10px}
+  .week-picker .week-label{display:flex!important;margin:0}
+  .week-picker button,.week-notice,.week-share-status{display:none!important}
+  .extras-section,.calendar-section{display:none!important}
+  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .day-card{break-inside:avoid;page-break-inside:avoid}
+  .section-heading{margin-bottom:10px}
+}
